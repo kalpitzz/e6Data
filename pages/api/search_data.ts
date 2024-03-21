@@ -37,7 +37,7 @@ const findSummaries = async (summaries: Summary[], search: any): Promise<Summary
         temp.push({ ...item, summary_at_index: index })
         resolve(temp)
       } else {
-        const wordCount = item?.summary.split(search).length - 1
+        const wordCount = item?.summary.toLowerCase().split(search).length - 1
         if (wordCount > 0)
           temp.push({ ...item, query_frequency: wordCount, summary_at_index: index })
 
@@ -81,7 +81,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
   try {
 
-    foundSummaries = await findSummaries(data?.summaries, search ? search : null)
+    foundSummaries = await findSummaries(data?.summaries, search ? search.toLowerCase() : null)
 
     //Formatting raw data by considering that ( summari_id == book_id ) and (every title is correctly placed corersponding to every summary's index) 
     formattedSummaries = foundSummaries.map((sumary) => ({

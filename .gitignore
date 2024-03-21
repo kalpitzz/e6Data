@@ -1,1 +1,62 @@
-node_modules
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+employee-app/node_modules
+driver-app/node_modules
+# dependencies
+/node_modules
+/.pnp
+.pnp.js
+/.next/
+
+# testing
+/coverage
+
+# production
+/build
+/webapp-frontend/build
+
+# misc
+.DS_Store
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+#react native
+
+# dependencies
+node_modules/
+
+# Expo
+.expo/
+dist/
+web-build/
+
+# Native
+*.orig.*
+*.jks
+*.p8
+*.p12
+*.key
+*.mobileprovision
+
+# Metro
+.metro-health-check*
+
+# debug
+npm-debug.*
+yarn-debug.*
+yarn-error.*
+
+# macOS
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+
+# typescript
+*.tsbuildinfo
