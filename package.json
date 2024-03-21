@@ -1,0 +1,42 @@
+{
+  "name": "e6data-demo",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "build": "next build",
+    "start": "next start -p 3024",
+    "lint": "next lint",
+    "dev": "next dev -p 3024",
+    "dev:test": "NODE_ENV=test next dev -p 3024",
+    "cypress:run": "cypress run && echo 'Cypress tests passed.' || (echo 'Cypress tests failed.' && exit 1)",
+    "cypress:open": "cypress open --e2e --browser electron",
+    "dev-test-open": "npm-run-all --parallel --print-label dev:test wait_for_port cypress:open",
+    "dev-test-ci": "npm-run-all --parallel --print-label dev:test wait_for_port cypress:run",
+    "build-start-test": "npm-run-all --sequential --print-label cleanup_port build --parallel start wait_for_port cypress:run ",
+    "cleanup_port": "lsof -ti :3024 | xargs kill",
+    "wait_for_port": "wait-on tcp:localhost:3024"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.2.1",
+    "next": "14.1.4",
+    "npm-run-all": "^4.1.5",
+    "react": "^18",
+    "react-dom": "^18",
+    "react-icons": "^5.0.1",
+    "react-redux": "^9.1.0",
+    "wait-on": "^7.2.0"
+  },
+  "devDependencies": {
+    "@types/cypress": "^1.1.3",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "autoprefixer": "^10.0.1",
+    "cypress": "^13.7.0",
+    "eslint": "^8",
+    "eslint-config-next": "14.1.4",
+    "postcss": "^8",
+    "tailwindcss": "^3.3.0",
+    "typescript": "^5"
+  }
+}
