@@ -62,3 +62,5 @@ Created api to fetch formatted data can be accessed on [http://localhost:3024/ap
 
 ## Note
 Check api call in Network tab in console for formatted data
+
+![Alt text]([image link](https://github.com/kalpitzz/e6Data/blob/42c2296b2f3d77cc6a54c271bc585ddac5e9e08a/public/s1.png))
